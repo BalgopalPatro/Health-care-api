@@ -6,14 +6,14 @@ exports.searchdata=(async(req,res)=>{
     console.log(resultdata);
     const filters = req.query;
 
-    const filtereddata =  resultdata.filter(user =>{
+    const filtereddata =  resultdata.filter(data =>{
       let isValid = true;
     for (key in filters) {
 
-      console.log(key, Data[key], filters[key]);
+      console.log(key, data[key], filters[key]);
      
       var regex = RegExp(filters[key],'i')
-      isValid = isValid && regex.test(Data[key]);
+      isValid = isValid && regex.test(data[key]);
     }
 
     return isValid;
