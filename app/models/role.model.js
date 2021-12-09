@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+import uniqid from 'uniqid'
 
 const Role = mongoose.model(
   "Role",

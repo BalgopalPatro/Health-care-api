@@ -24,7 +24,7 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`${process.env.MONGO_URI}`, {
+  .connect("mongodb+srv://bg:6705@cluster0.wqlq0.mongodb.net/healthcare?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -45,7 +45,10 @@ app.get("/", (req, res) => {
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
-
+require("./app/routes/createdata")(app);
+require("./app/routes/updatedata")(app);
+require("./app/routes/readdata")(app);
+require("./app/routes/searchdata")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

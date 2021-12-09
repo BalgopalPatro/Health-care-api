@@ -88,10 +88,10 @@ exports.signin = (req, res) => {
         });
       }
 
-      var token = jwt.sign({ id: user.id }, process.env.AUTH_SECRET, {
+      var token = jwt.sign({ id: user.id },"minor-project", {
         expiresIn: 86400 // 24 hours
       });
-
+    
       var authorities = [];
 
       for (let i = 0; i < user.roles.length; i++) {
